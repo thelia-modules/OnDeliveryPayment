@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://thelia.net/schema/dic/module"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://thelia.net/schema/dic/module http://thelia.net/schema/dic/module/module-2_2.xsd">
+    <fullnamespace>OnDeliveryPayment\OnDeliveryPayment</fullnamespace>
+    <descriptive locale="en_US">
+        <title>Payment on Delivery</title>
+        <description>Payment collected by the carrier upon delivery.</description>
+    </descriptive>
+    <descriptive locale="fr_FR">
+        <title>Paiement à la livraison</title>
+        <description>Paiement encaissé à la livraison par le livreur.</description>
+    </descriptive>
+    <languages>
+        <language>en_US</language>
+        <language>fr_FR</language>
+    </languages>
+    <version>1.0.0</version>
+    <author>
+        <name>mdevaud</name>
+        <email>mdevaud@openstudio.fr</email>
+    </author>
+    <type>payment</type>
+    <thelia>2.5.5</thelia>
+    <stability>prod</stability>
+</module>

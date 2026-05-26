@@ -1,0 +1,12 @@
+{
+  "name": "thelia/on-delivery-payment-module",
+  "description": "OnDeliveryPayment module for Thelia: payment collected by the carrier upon delivery.",
+  "license": "GPL-3.0-or-later",
+  "type": "thelia-module",
+  "require": {
+    "thelia/installer": "~1.1"
+  },
+  "extra": {
+    "installer-name": "OnDeliveryPayment"
+  }
+}
