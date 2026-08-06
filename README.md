@@ -1,10 +1,10 @@
 # Paiement à la livraison (OnDeliveryPayment)
 
-Module de paiement Thelia 2 permettant de proposer l'option **paiement à la livraison** : le règlement est encaissé par le livreur au moment de la remise du colis.
+Module de paiement Thelia 3 permettant de proposer l'option **paiement à la livraison** : le règlement est encaissé par le livreur au moment de la remise du colis.
 
 ## Compatibilité
 
-- Thelia >= 2.5.5
+- Thelia >= 2.6.0 (Thelia 3)
 - PHP >= 8.3
 
 ## Installation
