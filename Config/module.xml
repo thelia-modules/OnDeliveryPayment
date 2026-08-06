@@ -21,6 +21,6 @@
         <email>mdevaud@openstudio.fr</email>
     </author>
     <type>payment</type>
-    <thelia>2.5.5</thelia>
+    <thelia>2.6.0</thelia>
     <stability>prod</stability>
 </module>
