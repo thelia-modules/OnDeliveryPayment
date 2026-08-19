@@ -7,11 +7,11 @@ namespace OnDeliveryPayment;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
+use Symfony\Component\HttpFoundation\Response;
 use Thelia\Model\Order;
 use Thelia\Model\OrderStatus;
 use Thelia\Model\OrderStatusQuery;
 use Thelia\Module\AbstractPaymentModule;
-use Symfony\Component\HttpFoundation\Response;
 
 class OnDeliveryPayment extends AbstractPaymentModule
 {

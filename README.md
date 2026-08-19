@@ -4,7 +4,7 @@ Module de paiement Thelia 3 permettant de proposer l'option **paiement à la liv
 
 ## Compatibilité
 
-- Thelia >= 2.6.0 (Thelia 3)
+- Thelia >= 3.0.0
 - PHP >= 8.3
 
 ## Installation
