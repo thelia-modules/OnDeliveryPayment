@@ -11,6 +11,7 @@ use Thelia\Model\Order;
 use Thelia\Model\OrderStatus;
 use Thelia\Model\OrderStatusQuery;
 use Thelia\Module\AbstractPaymentModule;
+use Symfony\Component\HttpFoundation\Response;
 
 class OnDeliveryPayment extends AbstractPaymentModule
 {
@@ -21,14 +22,20 @@ class OnDeliveryPayment extends AbstractPaymentModule
     public static function configureServices(ServicesConfigurator $servicesConfigurator): void
     {
         $servicesConfigurator->load(self::getModuleCode().'\\', __DIR__)
-            ->exclude([THELIA_MODULE_DIR.ucfirst(self::getModuleCode()).'/I18n/*'])
+            ->exclude([
+                __DIR__.'/I18n',
+                __DIR__.'/Config',
+                __DIR__.'/Tests',
+                __FILE__,
+            ])
             ->autowire(true)
             ->autoconfigure(true);
     }
 
-    public function pay(Order $order): bool
+    public function pay(Order $order): ?Response
     {
-        return $this->getCurrentOrderTotalAmount() > 0;
+        // Paiement sans passerelle : aucune redirection, le tunnel se poursuit.
+        return null;
     }
 
     public function isValidPayment(): bool
@@ -36,9 +43,18 @@ class OnDeliveryPayment extends AbstractPaymentModule
         return $this->getCurrentOrderTotalAmount() > 0;
     }
 
-    public function postActivation(ConnectionInterface $con = null): void
+    public function postActivation(?ConnectionInterface $con = null): void
     {
+        // Garde d'idempotence. createSpecialStatut() porte deja son propre
+        // early-return sur le code du statut : la garde est donc un chemin rapide,
+        // pas une correction de bug.
+        if (self::getConfigValue('is_initialized', false)) {
+            return;
+        }
+
         $this->createSpecialStatut();
+
+        self::setConfigValue('is_initialized', true);
     }
 
     public function manageStockOnCreation(): bool
